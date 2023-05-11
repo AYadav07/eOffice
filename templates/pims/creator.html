@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Personnel Information Management System </h1> 
+
+<!DOCTYPE html>
+<head>
+<title> T1
+</title>
+<link rel="stylesheet" href="{% static 'css/pims.css' %}"/> 
+</head>
+<body>
+
+<h2>Employee List</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for account in accounts %}
+        <tr>
+            <td>{{account.first_name}} {{account.last_name}}</td>
+            <td>{{account.email}}</td>
+            <td>{{account.department}}</td>
+            <td><button type="submit"><a href="{% url 'pims_details' id=account.user_id %}"> Take Action </a></button></td>
+        </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+</div>
+</body>
+</html> 
+
+
+{% endblock %}

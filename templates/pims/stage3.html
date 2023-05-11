@@ -1,0 +1,119 @@
+{% extends 'pims/form_table.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{% static 'css/form_table.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form method="POST" id="add_new">
+          {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Father Name :</span>
+            <input type="text" placeholder="address's Name " name="address">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="city's Name " name="city">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="district " name="district">
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="state" name="state">
+          </div>
+
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="number" placeholder="pincode" name="pincode">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="post_office " name="post_office">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="number" placeholder="mobile " name="mobile">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="curr_address" name="curr_address">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="curr_city's " name="curr_city"> 
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="curr_district's Name " name="curr_district">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="curr_state " name="curr_state">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="curr_post_office" name="curr_post_office">
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="number" placeholder="curr_pincode " name="curr_pincode">
+          </div>
+          
+</div>
+<div class="button">
+    <input type="submit" value="Submit">
+  </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+<h2>Satge 1</h2>
+<ul>
+<form method="POST" id="add_new">
+    {% csrf_token %}
+    <li>    <input type="text" placeholder="address's Name " name="address">    </li>
+    <li>     <input type="text" placeholder="city's Name " name="city"></li>
+    <li>     <input type="text" placeholder="district " name="district"></li>
+   <li>    <input type="text" placeholder="state" name="state"></li>
+    <li>    <input type="number" placeholder="pincode" name="pincode"></li>>
+    <li>      <input type="text" placeholder="post_office " name="post_office"></li>
+    <li>      <input type="number" placeholder="mobile " name="mobile"></li>
+    <li>      <input type="text" placeholder="curr_address" name="curr_address"></li>
+    <li>  <input type="text" placeholder="curr_city's " name="curr_city">    </li>
+    <li>     <input type="text" placeholder="curr_district's Name " name="curr_district"></li>
+    <li>     <input type="text" placeholder="curr_state " name="curr_state"></li>
+   <li>    <input type="text" placeholder="curr_post_office" name="curr_post_office"></li>
+   <li>      <input type="number" placeholder="curr_pincode " name="curr_pincode"></li>
+  
+
+    <button type="submit"> SAVE </button>
+    
+</form>
+</ul>
+
+{% if saved %}
+<h1>Detail Saved </h1>
+{% endif %}
+
+{% endblock %}

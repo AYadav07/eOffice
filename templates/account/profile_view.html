@@ -1,0 +1,84 @@
+{% extends 'pims/pims_background.html' %}
+{% block content %}
+{% load static %}
+
+<div class="margin" >
+  
+<img class="image-1" width="400" src="{{account.profile_image.url}}">
+<div class="dep">
+    <li>
+        {% if priority is 1 %}
+            <h1>Director</h1>
+        {% elif priority is 2 %}
+            <h1>HOD</h1>
+        {% else %}
+            <h1>Staff</h1>
+        {% endif %}
+    </li>
+</div>
+
+
+
+
+
+    <div class="details"> 
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Email Id</h3>
+            <div class="border"><h3>{{account.email}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Username</h3>
+            <div class="border"><h3>{{account.username}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>First Name</h3>
+            <div class="border"><h3>{{account.first_name}}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Last Name</h3>
+            <div class="border"><h3>{{account.last_name}}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Department Name</h3>
+            <div class="border"><h3>{{account.department}}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Date of Joining</h3>
+            <div class="border"><h3>{{account.date_joined}}</h3>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}
+
+
+
+

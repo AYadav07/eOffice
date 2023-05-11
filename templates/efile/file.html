@@ -1,0 +1,129 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<html>
+<head>
+    <title>
+        File
+    </title>
+    <style>
+        .topp{
+            text-align: center;
+            margin-top: 8%;
+        }
+        .down{
+            margin-top: 20px;
+            margin-left: 20%;
+        }
+        h4{
+            margin-left: 19%;
+        }
+        h3{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+     
+    <div class="topp">
+        <h3><b>The opened file is : {{file.file_name}}</b></h3>
+    </div>
+<br>
+<br>
+    <section class="middle">
+        <h4><b>File consists of follwing receipts:</b></h4>
+    <table class="container">
+        <thead>
+            <tr style="font-size: 16px;">
+                <th><h1>Receipt Name</h1></th>
+                <th><h1>Receipt Description </h1></th>
+                <th><h1>Uploaded Date</h1></th>
+                <th><h1>Uploaded By</h1></th>
+                <th><h1>Comment</h1></th>
+                <th><h1>Action</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in docs %}
+            <tr>
+            <td>{{doc.doc_name}}</td>
+            <td>{{doc.doc_description}}</td>
+            <td>{{doc.uploaded_on}}</td>
+            <td>{{doc.uploaded_by.first_name}} {{doc.uploaded_by.last_name}}</td>
+            <td>{{doc.comment}}</td>
+                
+            {% if doc.doc_id %}
+            <td><a href="{% url 'opendoc' id=doc.doc_id %}"><button type="button" class="btn btn-success">Open Receipts </button></a></td>
+            
+            {% endif %}
+            <!--<td>{{application.description}}</td><!-->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+    </section>
+
+
+
+    <section class="middle">
+    
+    
+        <h3><span class="blue"></span><span class="blue">File</span> <span class="blue">History</span></h3>
+    
+    
+        <table class="container">
+            <thead>
+                <tr style="font-size: 16px;">
+                    <th><h1>Receiver Name</h1></th>
+                    <th><h1>Sender Name </h1></th>
+                    <th><h1>Sent Date</h1></th>
+                    <th><h1>Comment by sender</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for files in fileactions %}
+                <tr>
+                <td>{{files.receiver.first_name}} {{files.receiver.last_name}}</td>
+                <td>{{files.sender.first_name}} {{files.sender.last_name}}</td>
+                <td>{{files.sent_on}}</td>
+                <td>{{files.comment}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+    
+    
+    
+        </section>
+
+        <section  class="col-lg-8 down">
+            <div class="upload">
+                
+                    <a href="{% url 'uploadfile' id=file.file_id %}"><button class="btn btn-success">Upload Receipts </button></a>
+                
+            </div>
+            <br>
+
+            <div class="send">
+              
+                    <a href="{% url 'sendfile' id=file.file_id %}"><button class="btn btn-success">Send File</button></a>
+            
+            </div>
+        </section>
+   
+    
+
+</body>
+</html>
+
+
+{% endblock %}

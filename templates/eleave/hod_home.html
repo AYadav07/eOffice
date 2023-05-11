@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<style type="text/css">
+    .for{
+        margin-left: 85%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+</style>
+
+
+<h1 class="top"><span class="blue"></span>Pending<span class="blue"></span> <span class="blue">Leave</span></h1>
+    
+    <table class="container">
+        <thead>
+            <tr style="font-size: 16px;">
+                <th><h1>Name</h1></th>
+                <th><h1>Department</h1></th>
+                <th><h1>From Date</h1></th>
+                <th><h1>To Date</h1></th>
+                <th><h1>Reason</h1></th>
+                <th><h1>Applied Date</h1></th>
+                <th style="width: 30vh;"><h1>Action</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in leave_appication_curr %}
+            <tr>
+                <td>{{application.user_id.first_name}} {{application.user_id.last_name}}</td>
+                <td>{{application.user_id.department.dept_name}}</td>
+                <td>{{application.start_date}}</td>
+                <td>{{application.end_date}}</td>
+                <td>{{application.reason}}</td>
+                <td>{{application.applied_date}}</td>
+                <td><a href="{% url 'hod_forward' id=application.leave_id %}"><button type="button" class="btn btn-success">Forword</button></a> <a href="{% url 'hod_decline' id=application.leave_id %}"><button type="button" class="btn btn-success">Decline</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <br>
+    <br>
+    <br>
+<h1><span class="blue"></span>Previous<span class="blue"></span> <span class="blue">Leave</span></h1>
+    
+    <table class="container">
+        <thead>
+            <tr style="font-size: 16px;">
+                <th><h1>Name</h1></th>
+                <th><h1>Department</h1></th>
+                <th><h1>From Date</h1></th>
+                <th><h1>To Date</h1></th>
+                <th><h1>Reason</h1></th>
+                <th><h1>Applied Date</h1></th>
+                <th><h1>Status</h1></th>
+                <th><h1>Forwarded Date</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in leave_application %}
+                <tr>
+                <td>{{application.user_id.first_name}} {{application.user_id.last_name}}</td>
+                <td>{{application.user_id.department.dept_name}}</td>
+                <td>{{application.start_date}}</td>
+                <td>{{application.end_date}}</td>
+                <td>{{application.reason}}</td>
+                <td>{{application.applied_date}}</td>
+                {% if application.is_approved %}
+                    <td> Approved</td>
+                {% elif application.is_forwarded %}
+                <td>Forwarded</td>
+                {% elif application.is_forwarded is False %}
+                <td>Declined</td>
+                {% else %}
+                <td> No Action </td>
+                {% endif %}
+                <td>{{ application.forwarded_date }}</td>
+
+
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+
+
+<div class="for">
+    <a href="leaveapplication"> <button type="button" class="btn btn-success">Apply For Leave</button></a>
+{{yeah}}
+</div>
+</h1>
+
+{% endblock %}

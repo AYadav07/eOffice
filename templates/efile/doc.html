@@ -1,0 +1,86 @@
+
+{% extends 'pims/pims_background.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+<title></title>
+<link rel="stylesheet" href="{% static 'css/personal_details.css' %}"/> 
+<style>
+    .topp {
+        margin-top: 8%;
+        text-align: center;
+    }
+ 
+</style>
+</head>
+  
+<body>
+    <div class="topp">
+        <h3><b>The opened receipt is : {{docs.doc_name}}</b></h3>
+    </div>
+ 
+    <div class="details"> 
+    <div class="float-container" >
+
+
+        <div class="float-child">
+        <h3>Receipt Name</h3>
+        <div class="border"><h3>{{ docs.doc_name }}</h3></div>
+        
+        </div>
+
+
+        <div class="float-child">
+        <h3>Receipt Description </h3>
+        <div class="border"><h3>{{ docs.doc_description }}</h3></div>
+        
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <div class="float-container" >
+        <div class="float-child">
+        <h3>Uploaded Date</h3>
+        <div class="border"><h3>{{ docs.uploaded_on }}</h3></div>
+        
+        </div>
+
+
+
+        <div class="float-child">
+        <h3>Uploaded By</h3>
+        <div class="border "><h3>{{ docs.uploaded_by.first_name }} {{ docs.uploaded_by.last_name }}</h3>
+        </div>
+        </div>
+    </div>
+
+    <div class="float-container" >
+        <div class="float-child">
+        <h3>Comment</h3>
+        <div class="border"> <h3>{{ docs.comment }}</h3></div>
+       
+        </div>
+
+        <div class="float-child">
+            <h3>Action </h3>
+            <div class="border"> {% if docs.doc %}
+                <a href="{{docs.doc.url}}"><button type="submit" class="btn btn-success">View</button></a>
+                {% endif %}</div>
+           
+            </div>
+        
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+
+{% extends 'pims/pims_background.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+<title></title>
+<link rel="stylesheet" href="{% static 'css/personal_details.css' %}"/> 
+</head>
+  
+<body>
+  
+<!--Centered Image Start-->
+
+<img class="image-1" width="400" src="{{account.profile_image.url}}">
+
+<!--Centered Image End-->
+<div class="details"> 
+    <div class="float-container" >
+
+
+        <div class="float-child">
+        <h3>Username</h3>
+        <div class="border"><h3>{{ account.username }}</h3></div>
+        
+        </div>
+
+
+        <div class="float-child">
+        <h3>Email</h3>
+        <div class="border"><h3>{{ account.email }}</h3></div>
+        
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <div class="float-container" >
+        <div class="float-child">
+        <h3>First Name</h3>
+        <div class="border"><h3>{{ account.first_name }}</h3></div>
+        
+        </div>
+
+
+
+        <div class="float-child">
+        <h3>Last Name</h3>
+        <div class="border "><h3>{{ account.last_name }}</h3>
+        </div>
+        </div>
+    </div>
+
+    <div class="float-container" >
+        <div class="float-child">
+        <h3>Department</h3>
+        <div class="border"> <h3>{{ account.department }}</h3></div>
+       
+        </div>
+
+
+        <div class="float-child">
+        {% if detail %}
+        <div class="flex-parent jc-center">
+            <button type="submit"><a href="{% url 'view_1' id=pims_id %}"> Next </a></button>
+          </div>
+       
+        {% elif creator %}
+
+        <div class="flex-parent jc-center">
+            <button type="submit"><a href="{% url 'add_details' id=account.user_id %}"> Add Details </a></button>
+          </div>
+        
+        
+        {% else %}
+        <div class="border"> <h3> PIMS doesn't exist </h3></div>
+        
+       
+        
+        {% endif %}
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
+
+{% endblock %}

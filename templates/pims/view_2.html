@@ -1,0 +1,221 @@
+{% extends 'pims/pims_background.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="top"><h1>Personal Details </h1></div>
+
+
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+<title></title>
+<link rel="stylesheet" href="{% static 'css/personal_details.css' %}"/> 
+</head>
+  
+<body>
+    <div class="details"> 
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Course Degree :</h3>
+            <div class="border"><h3>{{pims.degree}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Institute Name:</h3>
+            <div class="border"><h3>{{pims.institute}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Course Discipline :</h3>
+            <div class="border"><h3>{{ pims.discipline }}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Course Grade :</h3>
+            <div class="border"><h3>{{ pims.passing_grade }}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Percenage  :</h3>
+            <div class="border"><h3>{{pims.passing_percentage}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Completion Year :</h3>
+            <div class="border"><h3>{{pims.passing_year}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Degree Type :</h3>
+            <div class="border"><h3>{{ pims.degree_type }}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Coordinator :</h3>
+            <div class="border"><h3>{{ pims.course_coordinator }}</h3>
+            </div>
+            </div>
+        </div>
+
+        
+        <br>
+        <br>
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Organisation Name :</h3>
+            <div class="border"><h3>{{pims.organisation}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Course Name :</h3>
+            <div class="border"><h3>{{pims.course_name}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Organisation address :</h3>
+            <div class="border"><h3>{{ pims.org_address }}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Organisation City :</h3>
+            <div class="border"><h3>{{ pims.org_city }}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Organisation District :</h3>
+            <div class="border"><h3>{{pims.org_district}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Organisation State :</h3>
+            <div class="border"><h3>{{pims.org_state}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Start Date :</h3>
+            <div class="border"><h3>{{ pims.course_start_date }}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Completion Date :</h3>
+            <div class="border"><h3>{{ pims.course_end_date }}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Course Completed :</h3>
+            <div class="border"><h3>{{pims.is_course_completed}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Grade :</h3>
+            <div class="border"><h3>{{pims.course_grade}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+       <br>
+
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+                <button type="submit"><a href="{% url 'view_1' id=pims.pims_id %}"> Back </a></button>
+    
+            
+            </div>
+    
+    
+            <div class="float-child">
+
+                {% if creator or director %}
+
+                <button type="submit"><a href="{% url 'edit_2' id=pims.pims_id %}"> Edit </a></button>
+
+                {% endif %}
+                
+            <button type="submit"><a href="{% url 'view_3' id=pims.pims_id %}"> Next </a></button>
+            
+            </div>
+    
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+</html>
+{% endblock %}
+
+
+
+

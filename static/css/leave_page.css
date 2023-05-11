@@ -1,0 +1,56 @@
+
+input[type=date] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    height: 30px;
+    
+  }
+
+  input[type="date"]:in-range::-webkit-datetime-edit-year-field, input[type="date"]:in-range::-webkit-datetime-edit-month-field, input[type="date"]:in-range::-webkit-datetime-edit-day-field, input[type="date"]:in-range::-webkit-datetime-edit-text { 	color: transparent; }
+  
+  .start{
+    color: brown;
+    font-size: 30px;
+  }
+  table{
+    margin-top: 25px;
+  }
+
+  textarea{
+  width: inherit;
+  box-sizing: border-box;
+  border: 1px solid silver;
+  padding: 0.5rem;
+  height: 7em;
+  border-radius: 3px;
+  
+  }
+
+  input{
+  font: inherit;
+   vertical-align: middle;
+   box-sizing: border-box;
+   border: 1px solid silver;
+   padding: 0.5rem;
+   margin: 0;
+   border-radius: 3px;
+  
+  }
+  tr.abc>td{
+    padding-bottom: 2em;
+  }
+  h1{
+    color: brown;
+  }
+  .leave{
+    color: brown;
+  }
+  .container{
+    margin-top: 10%; 
+    background: lightgray;
+    height: 75vh;
+    border-radius: 3px;
+  }
+  

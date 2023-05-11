@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<html>
+    <head>
+        <title>EFILE</title>
+    </head>
+    <style>
+        body {
+            margin-top: 6%;
+        }
+        h1 {
+            margin-top: 70px;
+        }
+        .down {
+            margin-top: 50px;
+            margin-left: 22%;
+        }
+
+    </style>
+    <body>
+        
+        
+<h1>Pending files</h1>
+<table class="container">
+    <thead>
+        <tr>
+            <th>file_name</th>
+            <th>description</th>
+            <th>created_on</th>
+            <th>is_open</th>
+            <th>file_id</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for file in pending_files %}
+
+        {% if file %}
+        <tr>
+            
+            <td>{{ file.file_name}}</td>
+            <td> {{ file.file_description}}</td>
+            <td> {{ file.created_on}}</td>
+            <td> {{ file.is_open}}</td>
+            <td> {{ file.file_id}}</td>
+            <td><a href="{% url 'open_file' id=file.file_id %}"><button type="submit" class="btn btn-success">Open File</button></a>  </td>
+       
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+<h1>Previously worked files</h1>
+        
+<table class="container">
+    <thead>
+        <tr>
+            <th>file_name</th>
+            <th>description</th>
+            <th>created_on</th>
+            <th>is_open</th>
+            <th>Received From</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for file in completed_files %}
+        <tr>
+            <td> {{ file.file_id.file_name}}</td>
+            <td> {{ file.file_id.file_description}}</td>
+            <td> {{ file.file_id.created_on}}</td>
+            <td> {{ file.file_id.is_open}}</td>
+            <td> {{ file.sender.first_name}}</td>
+       
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<h1> Generated Files</h1>
+
+        <table class="container">
+            <thead>
+                <tr>
+                    <th>file_name</th>
+                    <th>description</th>
+                    <th>created_on</th>
+                    <th>is_open</th>
+                    <th>file_id</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in files %}
+                <tr>
+                    <td> {{ file.file_name}}</td>
+                    <td> {{ file.file_description}}</td>
+                    <td> {{ file.created_on}}</td>
+                    <td> {{ file.is_open}}</td>
+                    <td> {{ file.file_id}}</td>
+               
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+       
+<div class="down">            <a href="createfile"><button type="submit" class="btn btn-success">Generate New File</button> </a>
+</div>
+
+
+    </body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends 'pims/pims_background.html' %}
+{% load static %}
+{% block content %}
+
+<div class="top" ><h1>Personal Details </h1></div>
+
+
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+<title></title>
+<link rel="stylesheet" href="{% static 'css/personal_details.css' %}"/> 
+</head>
+  
+<body>
+    <div class="details"> 
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Father Name :</h3>
+            <div class="border"><h3>{{pims.father_name}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Mother Name</h3>
+            <div class="border"><h3>{{pims.mother_name}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Aadhar Number:</h3>
+            <div class="border"><h3>{{ pims.aadhar_no }}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Date of Birth:</h3>
+            <div class="border"><h3>{{ pims.dob }}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Gender :</h3>
+            <div class="border"><h3>{{pims.gender}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Category :</h3>
+            <div class="border"><h3>{{pims.category}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Religion :</h3>
+            <div class="border"><h3>{{ pims.religion }}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Country :</h3>
+            <div class="border"><h3>{{ pims.country }}</h3>
+            </div>
+            </div>
+        </div>
+
+        
+        <br>
+        <br>
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Mother Tongue :</h3>
+            <div class="border"><h3>{{pims.mother_tongue}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Date of Joining :</h3>
+            <div class="border"><h3>{{pims.join_date}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Marital Status :</h3>
+            <div class="border"><h3>{{ pims.marital_status }}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>Blood Group :</h3>
+            <div class="border"><h3>{{ pims.blood_group }}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+                {% if creator or director %}
+
+
+                <button type="submit"><a href="{% url 'edit_1' id=pims.pims_id %}"> Edit </a></button>
+                
+                
+                {% endif %}
+            
+            </div>
+    
+    
+            <div class="float-child">
+                <button type="submit"><a href="{% url 'view_2' id=pims.pims_id %}"> Next </a></button>
+            
+            </div>
+    
+        </div>
+
+        
+
+
+
+
+    </div>
+
+
+
+
+</body>
+</html>
+{% endblock %}

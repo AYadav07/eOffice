@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{% static 'css/form_table.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form method="POST" id="add_new">
+          {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Father Name :</span>
+            <input type="text" placeholder="degree's Name " name="degree">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="institute's Name " name="institute">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="discipline " name="discipline">
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="passing_grade" name="passing_grade"></li>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="number" placeholder="passing_percentage" name="passing_percentage">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="date" placeholder="passing_year " name="passing_year">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="degree_type " name="degree_type">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="course_coordinator " name="course_coordinator">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="organisation" name="organisation">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="course_name's " name="course_name">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="org_address's Name " name="org_address">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="org_city " name="org_city">
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+                     <input type="text" placeholder="org_country" name="org_country">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="org_state " name="org_state">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="org_district " name="org_district">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="date" placeholder="course_start_date" name="course_start_date">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="date" placeholder="course_end_date's " name="course_end_date">
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="course_grade " name="course_grade">
+          </div>
+</div>
+<div class="button">
+    <input type="submit" value="Submit">
+  </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+{% endblock %}

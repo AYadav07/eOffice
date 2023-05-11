@@ -1,0 +1,107 @@
+{% extends 'pims/form_table.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{% static 'css/form_table.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Add Detail</div>
+    <div class="content">
+      <form method="POST" id="add_new">
+          {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Father's Name :</span>
+            <input type="text" placeholder="Father's Name " name="father_name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Mother's Name</span>
+            <input type="text" placeholder="Mother's Name " name="mother_name">
+          </div>
+          <div class="input-box">
+            <span class="details">Aadhar No</span>
+            <input type="number" placeholder="Aadhar No " name="aadhar_no">
+          </div>
+          <div class="input-box">
+            <span class="details">Date of Birth</span>
+            <input type="date" placeholder="DOB" name="dob">
+          </div>
+          <div class="input-box">
+            <span class="details">Category Name</span>
+            <input type="text" placeholder="category Name " name="category">
+          </div>
+          <div class="input-box">
+            <span class="details">Religion's Name</span>
+            <input type="text" placeholder="religion's Name " name="religion">
+          </div>
+          <div class="input-box">
+            <span class="details">Country's Name</span>
+            <input type="text" placeholder="country's Name " name="country">
+          </div>
+          <div class="input-box">
+            <span class="details">Mother Tongue</span>
+            <input type="text" placeholder="mother_tongue " name="mother_tongue">
+          </div>
+          <div class="input-box">
+            <span class="details">Join Date</span>
+            <input type="date" placeholder="join_date" name="join_date">
+          </div>
+          
+        <div class="input-box">
+            <span class="details">Select Gender </span>
+        <select name="gender" form="add_new">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+        </select>
+        </div>
+        <div class="input-box">
+        <span class="details">Select Marital Status </span>
+        <div class="input2">
+        <select name="marital_status" form="add_new">
+        <option value="Married">MARRIED</option>
+        <option value="Unmarried">UNMARRIED</option>
+        <option value="Divorced">DIVORCED</option>
+        </select>
+    </div>
+    </div>
+    <div class="input-box">
+        <span class="details">Select Blood Group </span>
+    <select name="blood_group" form="add_new">
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="others">Others</option>
+    </select>
+</div>
+</div>
+<div class="button">
+    <input type="submit" value="Submit">
+  </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+{% if saved %}
+<h1>Detail Saved </h1>
+<a href="{% url 'add_details2' id=pims.pims_id %}"> <button class="btn btn-success"> NEXT </a></button>
+{% endif %}
+{% endblock %}

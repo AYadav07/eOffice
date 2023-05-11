@@ -1,0 +1,201 @@
+{% extends 'pims/pims_background.html' %}
+{% load static %}
+{% block content %}
+
+<div class="top"><h1>Personal Details </h1></div>
+
+
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+<title></title>
+<link rel="stylesheet" href="{% static 'css/personal_details.css' %}"/> 
+</head>
+  
+<body>
+    <div class="details"> 
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Address :</h3>
+            <div class="border"><h3>{{pims.address}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>City :</h3>
+            <div class="border"><h3>{{pims.city}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>District :</h3>
+            <div class="border"><h3>{{ pims.district }}</h3></div>
+            
+            </div>
+    
+    
+    
+            <div class="float-child">
+            <h3>State :</h3>
+            <div class="border"><h3>{{ pims.state }}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Post Office :</h3>
+            <div class="border"><h3>{{pims.post_office}}</h3></div>
+            
+            </div>
+        
+    
+            <div class="float-child">
+            <h3>Pincode :</h3>
+            <div class="border"><h3>{{pims.pincode}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Mobile Number :</h3>
+            <div class="border"><h3>{{ pims.mobile }}</h3></div>
+            
+            </div>
+       </div>
+    
+         
+            <div class="float-container" >
+            <div class="float-child">
+            <h3>Current Address :</h3>
+            <div class="border"><h3>{{ pims.curr_address }}</h3>
+            </div>
+            </div>
+        </div>
+
+        
+        <br>
+        <br>
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Current City :</h3>
+            <div class="border"><h3>{{pims.curr_city}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Current District :</h3>
+            <div class="border"><h3>{{pims.curr_district}}</h3></div>
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <div class="float-container" >
+            <div class="float-child">
+            <h3>Current State :</h3>
+            <div class="border"><h3>{{ pims.curr_state }}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+            <h3>Current Post Office :</h3>
+            <div class="border"><h3>{{ pims.curr_post_office }}</h3>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+            <h3>Current Pincode :</h3>
+            <div class="border"><h3>{{pims.curr_pincode}}</h3></div>
+            
+            </div>
+    
+    
+            <div class="float-child">
+                <h3>Verification :</h3>
+                {% if director %}
+
+                {% if pims.director_verified is False %}
+                
+                <button type="submit"><a href="{% url 'director_verify' id=pims.pims_id %}"> Verify </a></button>
+
+                
+                
+                {% else %}
+                <div class="border"><h3>Verified </h3></div>
+                
+                {% endif %}
+                
+                {% elif pims.director_verified %}
+                
+                <div class="border"><h3>Verified </h3></div>
+                
+                {% else %}
+                <div class="border"><h3>Not Verified </h3></div>
+                {% endif %}
+            
+            </div>
+    
+        </div>
+        <br>
+        <br>
+       
+
+        <div class="float-container" >
+    
+    
+            <div class="float-child">
+                <button type="submit"><a href="{% url 'view_2' id=pims.pims_id %}"> Back </a></button>
+    
+            
+            </div>
+    
+    
+            <div class="float-child">
+
+
+                {% if creator or director %}
+
+                <button type="submit"><a href="{% url 'edit_3' id=pims.pims_id %}"> Edit </a></button>
+
+                {% endif %}
+                            
+            </div>
+    
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+</html>
+
+
+{% endblock %}
